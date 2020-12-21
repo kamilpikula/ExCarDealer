@@ -1,4 +1,7 @@
 defmodule ExCarDealerWeb.PageLive do
+  @moduledoc """
+  PageLive
+  """
   use ExCarDealerWeb, :live_view
 
   @impl true
