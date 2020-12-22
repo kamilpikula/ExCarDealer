@@ -1,5 +1,3 @@
-<%= if true do %>
+
   <%= render "_hero.html", conn: @conn %>
-<% else %>
   <%= render "_nav.html", conn: @conn %>
-<% end %>
