@@ -35,3 +35,7 @@ npm-debug.log
 
 # Ignore /.elixir_ls/
 /.elixir_ls/
+
+# Ignore dialyxir
+/priv/plts/*.plt
+/priv/plts/*.plt.hash
