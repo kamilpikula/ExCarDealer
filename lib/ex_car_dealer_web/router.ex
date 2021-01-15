@@ -20,16 +20,19 @@ defmodule ExCarDealerWeb.Router do
       error_handler: Pow.Phoenix.PlugErrorHandler
   end
 
-  scope "/" do
-    pipe_through :browser
-
-    pow_routes()
+  pipeline :not_authenticated do
+    plug Pow.Plug.RequireNotAuthenticated,
+      error_handler: ExCarDealerWeb.AuthErrorHandler
   end
 
   scope "/", ExCarDealerWeb do
-    pipe_through [:browser, :protected]
+    pipe_through [:browser, :not_authenticated]
 
     get "/", HomeController, :index
+    get "/rejestracja", RegistrationController, :new
+    post "/rejestracja", RegistrationController, :create
+    get "/logowanie", SessionController, :new
+    post "/logowanie", SessionController, :create
   end
 
   # Other scopes may use custom stacks.

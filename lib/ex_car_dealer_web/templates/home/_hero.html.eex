@@ -16,10 +16,10 @@
           <div class="navbar-end">
             <div class="navbar-item">
               <div class="buttons">
-                <a class="button is-primary">
+                <a class="button is-primary" href="<%= Routes.registration_path(@conn, :new) %>">
                   <strong>Zarejestruj się</strong>
                 </a>
-                <a class="button is-light">
+                <a class="button is-light" href="<%= Routes.session_path(@conn, :new) %>">
                   Logowanie
                 </a>
               </div>
@@ -36,12 +36,8 @@
         Wyszukaj samochód swoich marzeń
       </p>
       <p class="subtitle">
-        Subtitle
+        Szybko i bezpiecznie
       </p>
     </div>
   </div>
-      <li><a href="https://hexdocs.pm/phoenix/overview.html">Get Started</a></li>
-            <%= if function_exported?(Routes, :live_dashboard_path, 2) do %>
-              <li><%= link "LiveDashboard", to: Routes.live_dashboard_path(@conn, :home) %></li>
-            <% end %>
 </section>
