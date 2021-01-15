@@ -1,1 +1,36 @@
-<div>Tutaj admin</div>
+<section class="section">
+    <div class="container">
+      <h1 class="title">Panel administracyjny</h1>
+      <table class="table">
+        <thead>Lista wszystkich uzytkownikow</thead>
+        <tbody>
+            <tr>
+                <th>ID</th>
+                <th>Imię</th>
+                <th>Nazwisko</th>
+                <th>Email</th>
+                <th>Rola</th>
+                <th>Akcje<th>
+            </tr>
+            <%= for u <- @users do %>
+            <tr>
+                <td><%= u.id %></td>
+                <td><%= u.first_name %></td>
+                <td><%= u.last_name %></td>
+                <td><%= u.email %></td>
+                <td><%= u.role %></td>
+                <td>
+                    <button class="button is-info"
+                        <%= if ExCarDealer.Users.user_is_admin?(u.id) do %>
+                            disabled
+                        <% else %>
+                            <% ExCarDealer.Users.set_admin_role(u) %>
+                        <% end %>
+                    >Ustaw jako admina</button>
+                </td>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+</section>

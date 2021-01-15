@@ -54,8 +54,6 @@ defmodule ExCarDealerWeb.Router do
     post "/logowanie", SessionController, :create
   end
 
-
-
   # Enables LiveDashboard only for development
   #
   # If you want to use the LiveDashboard in production, you should put

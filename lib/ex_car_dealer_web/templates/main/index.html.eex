@@ -2,3 +2,7 @@
 
 
 <%= link "Wyloguj się", to: Routes.logout_path(@conn, :delete), method: :delete %>
+<%= link "Mój profil", to: Routes.registration_path(@conn, :edit) %>
+<%= if ExCarDealer.Users.is_admin?(@current_user) do %>
+    <%= link "Panel admina", to: Routes.admin_path(@conn, :index) %>
+<% end %>
