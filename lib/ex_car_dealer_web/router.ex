@@ -25,11 +25,23 @@ defmodule ExCarDealerWeb.Router do
       error_handler: ExCarDealerWeb.AuthErrorHandler
   end
 
+  pipeline :admin do
+    plug ExCarDealerWeb.EnsureRolePlug, :admin
+  end
+
   scope "/glowna", ExCarDealerWeb do
     pipe_through [:browser, :protected]
 
     get "/", MainController, :index
     delete "/wylogowywanie", SessionController, :delete, as: :logout
+    get "/profil", RegistrationController, :edit
+    put "/profil", RegistrationController, :update
+  end
+
+  scope "/admin", ExCarDealerWeb do
+    pipe_through [:browser, :admin]
+
+    get "/", AdminController, :index
   end
 
   scope "/", ExCarDealerWeb do
