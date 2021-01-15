@@ -18,6 +18,11 @@ config :ex_car_dealer, ExCarDealerWeb.Endpoint,
   pubsub_server: ExCarDealer.PubSub,
   live_view: [signing_salt: "gdAVsiPA"]
 
+config :ex_car_dealer, :pow,
+  user: ExCarDealer.Users.User,
+  repo: ExCarDealer.Repo,
+  web_module: ExCarDealerWeb
+
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",

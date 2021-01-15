@@ -1,5 +1,6 @@
 defmodule ExCarDealerWeb.Router do
   use ExCarDealerWeb, :router
+  use Pow.Phoenix.Router
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -14,8 +15,19 @@ defmodule ExCarDealerWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/", ExCarDealerWeb do
+  pipeline :protected do
+    plug Pow.Plug.RequireAuthenticated,
+      error_handler: Pow.Phoenix.PlugErrorHandler
+  end
+
+  scope "/" do
     pipe_through :browser
+
+    pow_routes()
+  end
+
+  scope "/", ExCarDealerWeb do
+    pipe_through [:browser, :protected]
 
     get "/", HomeController, :index
   end
