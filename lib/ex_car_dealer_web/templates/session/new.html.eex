@@ -26,7 +26,7 @@
 </div>
 
 <div class="field">
-  <%= label f, :password,[class: "label"] %>
+  <%= label f, :password, "Hasło", [class: "label"] %>
   <div class="control has-icons-left has-icons-right">
     <%= password_input f, :password, [class: "input", placeholder: "Hasło"] %>
     <span class="icon is-small is-left">
@@ -40,7 +40,7 @@
 </div>
 
   <div>
-    <%= submit "Sign in", [class: "button is-success", style: "margin-bottom: 30px"] %>
+    <%= submit "Zaloguj się!", [class: "button is-success", style: "margin-bottom: 30px"] %>
   </div>
 <% end %>
 

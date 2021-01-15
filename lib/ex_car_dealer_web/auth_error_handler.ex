@@ -9,10 +9,9 @@ defmodule ExCarDealerWeb.AuthErrorHandler do
     |> redirect(to: Routes.session_path(conn, :new))
   end
 
-  @spec call(Conn.t(), atom()) :: Conn.t()
   def call(conn, :already_authenticated) do
     conn
     |> put_flash(:error, "Jesteś zalogowany")
-    |> redirect(to: Routes.home_path(conn, :index))
+    |> redirect(to: Routes.main_path(conn, :index))
   end
 end

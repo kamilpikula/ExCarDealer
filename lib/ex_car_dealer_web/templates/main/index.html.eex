@@ -1,0 +1,4 @@
+<div>siema, <%= Pow.Plug.current_user(@conn).first_name %></div>
+
+
+<%= link "Wyloguj się", to: Routes.logout_path(@conn, :delete), method: :delete %>

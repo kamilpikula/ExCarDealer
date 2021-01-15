@@ -25,6 +25,13 @@ defmodule ExCarDealerWeb.Router do
       error_handler: ExCarDealerWeb.AuthErrorHandler
   end
 
+  scope "/glowna", ExCarDealerWeb do
+    pipe_through [:browser, :protected]
+
+    get "/", MainController, :index
+    delete "/wylogowywanie", SessionController, :delete, as: :logout
+  end
+
   scope "/", ExCarDealerWeb do
     pipe_through [:browser, :not_authenticated]
 
@@ -35,10 +42,7 @@ defmodule ExCarDealerWeb.Router do
     post "/logowanie", SessionController, :create
   end
 
-  # Other scopes may use custom stacks.
-  # scope "/api", ExCarDealerWeb do
-  #   pipe_through :api
-  # end
+
 
   # Enables LiveDashboard only for development
   #

@@ -14,7 +14,7 @@ defmodule ExCarDealerWeb.SessionController do
       {:ok, conn} ->
         conn
         |> put_flash(:info, "Witamy ponownie")
-        |> redirect(to: Routes.home_path(conn, :index))
+        |> redirect(to: Routes.main_path(conn, :index))
 
       {:error, conn} ->
         changeset = Pow.Plug.change_user(conn, conn.params["user"])

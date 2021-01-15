@@ -23,7 +23,7 @@ defmodule ExCarDealerWeb.RegistrationController do
       {:ok, user, conn} ->
         conn
         |> put_flash(:info, "Witamy!")
-        |> redirect(to: Routes.home_path(conn, :index))
+        |> redirect(to: Routes.main_path(conn, :index))
 
       {:error, changeset, conn} ->
         render(conn, "new.html", changeset: changeset)
