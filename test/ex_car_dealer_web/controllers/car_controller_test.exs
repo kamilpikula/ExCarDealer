@@ -7,14 +7,14 @@ defmodule ExCarDealerWeb.CarControllerTest do
     brand: "some brand",
     condition: "some condition",
     model: "some model",
-    price: 120.5,
+    price: 120,
     year: 42
   }
   @update_attrs %{
     brand: "some updated brand",
     condition: "some updated condition",
     model: "some updated model",
-    price: 456.7,
+    price: 456,
     year: 43
   }
   @invalid_attrs %{brand: nil, condition: nil, model: nil, price: nil, year: nil}
