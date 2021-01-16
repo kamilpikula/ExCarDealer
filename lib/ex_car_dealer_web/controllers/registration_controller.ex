@@ -43,7 +43,7 @@ defmodule ExCarDealerWeb.RegistrationController do
     conn
     |> Pow.Plug.update_user(user_params)
     |> case do
-      {:ok, user, conn} ->
+      {:ok, _user, conn} ->
         conn
         |> put_flash(:info, "Zaktualizowano dane!")
         |> redirect(to: Routes.main_path(conn, :index))

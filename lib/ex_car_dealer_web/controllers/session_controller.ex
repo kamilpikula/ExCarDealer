@@ -9,7 +9,8 @@ defmodule ExCarDealerWeb.SessionController do
 
   def create(conn, %{"user" => user_params}) do
     conn
-    |> Pow.Plug.authenticate_user(user_params) |> IO.inspect()
+    |> Pow.Plug.authenticate_user(user_params)
+    |> IO.inspect()
     |> case do
       {:ok, conn} ->
         conn

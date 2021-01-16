@@ -17,7 +17,7 @@ defmodule ExCarDealer.Cars.Car do
   @doc false
   def changeset(car, attrs) do
     car
-    |> cast(attrs, [:brand, :model, :price, :condition, :year])
+    |> cast(attrs, [:brand, :model, :price, :condition, :year, :image_url])
     |> validate_required([:brand, :model, :price, :condition, :year])
   end
 end

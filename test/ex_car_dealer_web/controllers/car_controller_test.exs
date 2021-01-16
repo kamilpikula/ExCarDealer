@@ -3,8 +3,20 @@ defmodule ExCarDealerWeb.CarControllerTest do
 
   alias ExCarDealer.Cars
 
-  @create_attrs %{brand: "some brand", condition: "some condition", model: "some model", price: 120.5, year: 42}
-  @update_attrs %{brand: "some updated brand", condition: "some updated condition", model: "some updated model", price: 456.7, year: 43}
+  @create_attrs %{
+    brand: "some brand",
+    condition: "some condition",
+    model: "some model",
+    price: 120.5,
+    year: 42
+  }
+  @update_attrs %{
+    brand: "some updated brand",
+    condition: "some updated condition",
+    model: "some updated model",
+    price: 456.7,
+    year: 43
+  }
   @invalid_attrs %{brand: nil, condition: nil, model: nil, price: nil, year: nil}
 
   def fixture(:car) do
@@ -75,6 +87,7 @@ defmodule ExCarDealerWeb.CarControllerTest do
     test "deletes chosen car", %{conn: conn, car: car} do
       conn = delete(conn, Routes.car_path(conn, :delete, car))
       assert redirected_to(conn) == Routes.car_path(conn, :index)
+
       assert_error_sent 404, fn ->
         get(conn, Routes.car_path(conn, :show, car))
       end

@@ -36,6 +36,8 @@ defmodule ExCarDealerWeb.Router do
     delete "/wylogowywanie", SessionController, :delete, as: :logout
     get "/profil", RegistrationController, :edit
     put "/profil", RegistrationController, :update
+    get "/rezerwacja", MainController, :index
+    put "/rezerwacja", CarController, :reservation
   end
 
   scope "/admin", ExCarDealerWeb do

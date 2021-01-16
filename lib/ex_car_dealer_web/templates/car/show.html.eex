@@ -28,6 +28,3 @@
   </li>
 
 </ul>
-
-<span><%= link "Edit", to: Routes.car_path(@conn, :edit, @car) %></span>
-<span><%= link "Back", to: Routes.car_path(@conn, :index) %></span>

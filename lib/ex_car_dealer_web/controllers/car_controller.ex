@@ -51,6 +51,24 @@ defmodule ExCarDealerWeb.CarController do
     end
   end
 
+  def reservation(conn, %{"id" => id}) do
+    car = Cars.get_car!(id)
+    user_id = conn.assigns.current_user.id
+    IO.inspect(conn)
+
+    case Cars.update_car(car, %{"user_id" => user_id}) do
+      {:ok, _} ->
+        conn
+        |> put_flash(:info, "Samochód został zarezerwowany, odezwiemy się w ciągu 12h!")
+        |> redirect(to: Routes.main_path(conn, :index))
+
+      {:error, _} ->
+        conn
+        |> put_flash(:info, "Nie mozna zarezerwować, przepraszamy. :(")
+        |> redirect(to: Routes.main_path(conn, :index))
+    end
+  end
+
   def delete(conn, %{"id" => id}) do
     car = Cars.get_car!(id)
     {:ok, _car} = Cars.delete_car(car)

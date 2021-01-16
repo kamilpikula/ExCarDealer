@@ -6,6 +6,7 @@ defmodule ExCarDealerWeb.AdminController do
   def index(conn, _params) do
     render(conn, "index.html",
       users: Users.list_users(),
-      cars: Cars.list_cars())
+      cars: Cars.list_cars()
+    )
   end
 end

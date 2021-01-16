@@ -1,0 +1,41 @@
+<section class="section">
+    <div class="container">
+      <h1 class="title">Lista samochodów</h1>
+      <%= for car <- @cars do %>
+      <div class="columns">
+        <div class="column is-three-fifths is-offset-one-fifth">
+        <div class="card">
+        <div class="card-image">
+            <figure class="image is-4by3">
+            <img src="<%= car.image_url %>" alt="<%= car.brand %>">
+            </figure>
+        </div>
+        <div class="card-content">
+            <div class="media">
+            <div class="media-content">
+                <p class="title is-4"><%= car.brand %> <%= car.model %></p>
+                <p class="subtitle is-6">Stan uzytkowania: <%= car.condition %></p>
+            </div>
+            </div>
+
+            <div class="content">
+            Cena pojazdu:
+            <br>
+            <div class="content is-size-3 has-text-info"><%= format_price(car.price) %> PLN</div>
+
+            <div class="buttons has-addons is-right">
+                <button class="button is-info is-rounded"
+                <%= if ExCarDealer.Users.is_admin?(@current_user) or car.user_id do %>
+                    disabled
+                <% end %>
+                >Rezerwuj</button>
+            </div>
+            <p>Ogłoszenie dodano: <%= NaiveDateTime.to_string(car.inserted_at) %> </p>
+            </div>
+        </div>
+        </div>
+        </div>
+      </div>
+      <% end %>
+    </div>
+</section>
