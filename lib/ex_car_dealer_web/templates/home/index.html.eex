@@ -1,3 +1,2 @@
 
   <%= render "_hero.html", conn: @conn %>
-  <%= render "_nav.html", conn: @conn %>

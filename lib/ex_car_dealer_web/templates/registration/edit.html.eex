@@ -1,3 +1,28 @@
+<nav class="navbar is-info" role="navigation" aria-label="main navigation">
+  <div id="navbarBasicExample" class="navbar-menu container">
+    <div class="navbar-brand">
+      <a class="navbar-item is-size-4 has-text-weight-semibold" href="<%= Routes.main_path(@conn, :index) %>">
+        <i class="fas fa-car"></i>
+        ExCarDealer
+      </a>
+    </div>
+    <div class="navbar-start">
+
+      <%= link "Strona główna", to: Routes.main_path(@conn, :index), class: "navbar-item" %>
+
+      <%= link "Mój profil", to: Routes.registration_path(@conn, :edit), class: "navbar-item" %>
+
+      <%= if ExCarDealer.Users.is_admin?(@current_user) do %>
+        <%= link "Panel admina", to: Routes.admin_path(@conn, :index), class: "navbar-item" %>
+      <% end %>
+
+      <%= link "Wyloguj się", to: Routes.logout_path(@conn, :delete), method: :delete, class: "navbar-item" %>
+    </div>
+  </div>
+</nav>
+
+<p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
+  <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
 
 <section class="section">
     <div class="container">

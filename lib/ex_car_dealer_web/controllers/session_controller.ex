@@ -9,11 +9,11 @@ defmodule ExCarDealerWeb.SessionController do
 
   def create(conn, %{"user" => user_params}) do
     conn
-    |> Pow.Plug.authenticate_user(user_params)
+    |> Pow.Plug.authenticate_user(user_params) |> IO.inspect()
     |> case do
       {:ok, conn} ->
         conn
-        |> put_flash(:info, "Witamy ponownie")
+        |> put_flash(:info, "Witamy ponownie, #{conn.assigns.current_user.first_name}")
         |> redirect(to: Routes.main_path(conn, :index))
 
       {:error, conn} ->
