@@ -8,7 +8,6 @@ defmodule ExCarDealer.Users.User do
     field :role, :string, null: false, default: "user"
 
     has_one :car, ExCarDealer.Cars.Car
-
     pow_user_fields()
 
     timestamps()

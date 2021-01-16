@@ -10,6 +10,7 @@ defmodule ExCarDealer.Cars.Car do
     field :year, :integer
     field :user_id, :id
     field :image_url, :string
+
     timestamps()
   end
 
