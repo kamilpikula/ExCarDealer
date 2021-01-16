@@ -1,0 +1,6 @@
+<section class="section">
+    <div class="container">
+      <h1 class="title">Dodaj nowy samochód</h1>
+<%= render "form.html", Map.put(assigns, :action, Routes.car_path(@conn, :create)) %>
+
+<span><%= link "Cofnij", to: Routes.admin_path(@conn, :index), class: "button is-info", style: "margin-top: 30px" %></span>

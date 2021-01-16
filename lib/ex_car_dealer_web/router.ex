@@ -42,6 +42,9 @@ defmodule ExCarDealerWeb.Router do
     pipe_through [:browser, :admin]
 
     get "/", AdminController, :index
+    get "/dodaj-auto", CarController, :new
+    post "/dodaj-auto", CarController, :create
+    delete "/usun-auto", CarController, :delete
   end
 
   scope "/", ExCarDealerWeb do

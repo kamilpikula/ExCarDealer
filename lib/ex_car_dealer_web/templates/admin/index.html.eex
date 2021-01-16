@@ -1,7 +1,17 @@
 <section class="section">
     <div class="container">
       <h1 class="title">Panel administracyjny</h1>
-      <table class="table">
+
+<div id="tabs-with-content">
+  <div class="tabs">
+    <ul>
+      <li><a>Uzytkownicy</a></li>
+      <li><a>Samochody</a></li>
+    </ul>
+  </div>
+  <div>
+    <section class="tab-content">
+      <table class="table is-striped">
         <thead>Lista wszystkich uzytkownikow</thead>
         <tbody>
             <tr>
@@ -24,7 +34,7 @@
                         <%= if ExCarDealer.Users.user_is_admin?(u.id) do %>
                             disabled
                         <% else %>
-                            <% ExCarDealer.Users.set_admin_role(u) %>
+
                         <% end %>
                     >Ustaw jako admina</button>
                 </td>
@@ -32,5 +42,39 @@
         <% end %>
         </tbody>
       </table>
-    </div>
+    </section>
+    <section class="tab-content">
+    <%= link "Dodaj samochód", to: Routes.car_path(@conn, :new), class: "button is-success" %>
+    <br>
+    <table class="table is-striped">
+        <thead>Lista wszystkich samochodów</thead>
+        <tbody>
+            <tr>
+                <th>ID</th>
+                <th>Marka</th>
+                <th>Model</th>
+                <th>Cena</th>
+                <th>Stan pojazdu</th>
+                <th>Rok<th>
+                <th>Rezerwacja</th>
+            </tr>
+            <%= for c <- @cars do %>
+            <tr>
+                <td><%= c.id %></td>
+                <td><%= c.brand %></td>
+                <td><%= c.model %></td>
+                <td><%= c.price %> PLN</td>
+                <td><%= c.condition %></td>
+                <td><%= c.year %></td>
+                <td><%= name_buyer(c.user_id) %></td>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </section>
+  </div>
+</div>
+
+
+</div>
 </section>

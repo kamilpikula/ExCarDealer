@@ -11,6 +11,17 @@ defmodule ExCarDealer.Users do
     |> Repo.insert()
   end
 
+  def list_users() do
+    Repo.all(User)
+  end
+
+  def get_user!(id), do: Repo.get!(User, id)
+
+  def user_is_admin?(id) do
+    Repo.get!(User, id)
+    |> is_admin?()
+  end
+
   @spec set_admin_role(t()) :: {:ok, t()} | {:error, Ecto.Changeset.t()}
   def set_admin_role(user) do
     user

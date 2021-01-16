@@ -41,7 +41,7 @@ defmodule ExCarDealerWeb.EnsureRolePlug do
   defp maybe_halt(_any, conn) do
     conn
     |> Controller.put_flash(:error, "Brak dostępu")
-    |> Controller.redirect(to: Routes.main_path(conn, :index))
+    |> Controller.redirect(to: Routes.home_path(conn, :index))
     |> halt()
   end
 end

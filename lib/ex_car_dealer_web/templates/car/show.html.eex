@@ -1,0 +1,33 @@
+<h1>Show Car</h1>
+
+<ul>
+
+  <li>
+    <strong>Brand:</strong>
+    <%= @car.brand %>
+  </li>
+
+  <li>
+    <strong>Model:</strong>
+    <%= @car.model %>
+  </li>
+
+  <li>
+    <strong>Price:</strong>
+    <%= @car.price %>
+  </li>
+
+  <li>
+    <strong>Condition:</strong>
+    <%= @car.condition %>
+  </li>
+
+  <li>
+    <strong>Year:</strong>
+    <%= @car.year %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.car_path(@conn, :edit, @car) %></span>
+<span><%= link "Back", to: Routes.car_path(@conn, :index) %></span>

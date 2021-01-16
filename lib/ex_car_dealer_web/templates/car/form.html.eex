@@ -1,0 +1,97 @@
+<%= form_for @changeset, @action, fn f -> %>
+  <%= if @changeset.action do %>
+    <div class="alert alert-danger">
+      <p>Ups, stało się coś złego! Sprawdź ponizsze błędy</p>
+    </div>
+  <% end %>
+
+<div class="select">
+  <div class="control has-icons-left has-icons-right">
+    <%= select f, :brand, ["Audi": "Audi", "Opel": "Opel", "BMW": "BMW", "Renault": "Renault"] %>
+    <span class="icon is-small is-left">
+      <i class="fas fa-envelope"></i>
+    </span>
+    <span class="icon is-small is-right">
+      <i class="fas fa-exclamation-triangle"></i>
+    </span>
+  </div>
+  <%= error_tag f, :brand %>
+</div>
+
+  <div class="field" style="margin-top: 30px">
+  <%= label f, :model, "Model", [class: "label"] %>
+  <div class="control has-icons-left has-icons-right">
+    <%= text_input f, :model, [class: "input", placeholder: "Model"] %>
+    <span class="icon is-small is-left">
+      <i class="fas fa-envelope"></i>
+    </span>
+    <span class="icon is-small is-right">
+      <i class="fas fa-exclamation-triangle"></i>
+    </span>
+  </div>
+  <%= error_tag f, :model %>
+</div>
+
+
+<div class="field">
+  <%= label f, :price, "Cena", [class: "label"] %>
+  <div class="control has-icons-left has-icons-right">
+    <%= number_input f, :price, [class: "input"] %>
+    <span class="icon is-small is-left">
+      <i class="fas fa-envelope"></i>
+    </span>
+    <span class="icon is-small is-right">
+      <i class="fas fa-exclamation-triangle"></i>
+    </span>
+  </div>
+  <%= error_tag f, :price %>
+</div>
+
+
+<div class="field" style="margin-bottom: 30px">
+  <%= label f, :condition, "Stan pojazdu", [class: "label"] %>
+  <div class="control has-icons-left has-icons-right">
+    <%= text_input f, :condition, [class: "input", placeholder: "Opisz stan pojazdu własnymi słowami"]%>
+    <span class="icon is-small is-left">
+      <i class="fas fa-envelope"></i>
+    </span>
+    <span class="icon is-small is-right">
+      <i class="fas fa-exclamation-triangle"></i>
+    </span>
+  </div>
+  <%= error_tag f, :condition %>
+</div>
+
+
+<div class="field">
+  <%= label f, :year, "Rok produkcji", [class: "label"] %>
+  <div class="control has-icons-left has-icons-right">
+    <%= number_input f, :year, [class: "input"] %>
+    <span class="icon is-small is-left">
+      <i class="fas fa-envelope"></i>
+    </span>
+    <span class="icon is-small is-right">
+      <i class="fas fa-exclamation-triangle"></i>
+    </span>
+  </div>
+  <%= error_tag f, :year %>
+</div>
+
+<div class="field" style="margin-top: 30px">
+  <%= label f, :image_url, "Link do zdjęcia", [class: "label"] %>
+  <div class="control has-icons-left has-icons-right">
+    <%= text_input f, :image_url, [class: "input", placeholder: "Wklej tutaj link do zdjęcia samochodu"] %>
+    <span class="icon is-small is-left">
+      <i class="fas fa-envelope"></i>
+    </span>
+    <span class="icon is-small is-right">
+      <i class="fas fa-exclamation-triangle"></i>
+    </span>
+  </div>
+  <%= error_tag f, :image_url %>
+</div>
+
+  <div>
+    <%= submit "Zapisz", [class: "button is-success"] %>
+  </div>
+<% end %>
