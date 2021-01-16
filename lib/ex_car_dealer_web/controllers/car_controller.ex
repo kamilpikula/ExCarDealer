@@ -54,7 +54,6 @@ defmodule ExCarDealerWeb.CarController do
   def reservation(conn, %{"id" => id}) do
     car = Cars.get_car!(id)
     user_id = conn.assigns.current_user.id
-    IO.inspect(conn)
 
     case Cars.update_car(car, %{"user_id" => user_id}) do
       {:ok, _} ->
@@ -75,6 +74,6 @@ defmodule ExCarDealerWeb.CarController do
 
     conn
     |> put_flash(:info, "Samochód pomyślnie usunięto.")
-    |> redirect(to: Routes.car_path(conn, :index))
+    |> redirect(to: Routes.admin_path(conn, :index))
   end
 end

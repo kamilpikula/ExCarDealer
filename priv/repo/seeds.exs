@@ -18,7 +18,7 @@ Repo.insert!(%User{
   current_password: nil,
   email: "pikusix1@o2.pl",
   first_name: "Kamil",
-  id: 1,
+  id: 5,
   inserted_at: ~N[2021-01-15 22:51:52],
   last_name: "Pikula",
   password: nil,
@@ -32,7 +32,7 @@ Repo.insert!(%User{
   current_password: nil,
   email: "test1@example.com",
   first_name: "Jan",
-  id: 2,
+  id: 6,
   inserted_at: ~N[2021-01-15 22:51:52],
   last_name: "Nowak",
   password: nil,
@@ -46,7 +46,7 @@ Repo.insert!(%User{
   current_password: nil,
   email: "jacek.kowalski@gmail.com",
   first_name: "Jacek",
-  id: 3,
+  id: 7,
   inserted_at: ~N[2021-01-15 22:51:52],
   last_name: "Kowalski",
   password: nil,
@@ -60,7 +60,7 @@ Repo.insert!(%User{
   current_password: nil,
   email: "a.nowicka@test.pl",
   first_name: "Ania",
-  id: 4,
+  id: 8,
   inserted_at: ~N[2021-01-15 22:51:52],
   last_name: "Nowicka",
   password: nil,
@@ -74,35 +74,35 @@ Repo.insert!(%User{
 Repo.insert!(%Car{
   brand: "BMW",
   condition: "Uzywany",
-  id: 1,
+  id: 5,
   image_url:
     "https://uzywane.gazdagroupdabrowa.pl/application/files/6515/7502/5351/BMW-G30-22.jpg",
   inserted_at: ~N[2021-01-16 00:56:45],
   model: "540d",
   price: 65_500,
   updated_at: ~N[2021-01-16 00:56:45],
-  user_id: 2,
+  user_id: 6,
   year: 2017
 })
 
 Repo.insert!(%Car{
   brand: "BMW",
   condition: "Nowy",
-  id: 2,
+  id: 6,
   image_url:
     "https://uzywane.gazdagroupdabrowa.pl/application/files/6515/7502/5351/BMW-G30-22.jpg",
   inserted_at: ~N[2021-01-16 00:56:45],
   model: "540d",
   price: 50_000,
   updated_at: ~N[2021-01-16 00:56:45],
-  user_id: 3,
+  user_id: 7,
   year: 2018
 })
 
 Repo.insert!(%Car{
   brand: "Audi",
   condition: "Uzywany",
-  id: 3,
+  id: 7,
   image_url: "https://i.wpimg.pl/730x0/m.autokult.pl/autowp-ru-audi-a4-2-0t-s-831475d.jpg",
   inserted_at: ~N[2021-01-16 03:33:34],
   model: "A4",

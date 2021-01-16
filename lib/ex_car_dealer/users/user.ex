@@ -18,6 +18,7 @@ defmodule ExCarDealer.Users.User do
     user_or_changeset
     |> pow_changeset(attrs)
     |> Ecto.Changeset.cast(attrs, [:first_name, :last_name])
+    |> Ecto.Changeset.unique_constraint(:email)
     |> Ecto.Changeset.validate_length(:first_name, min: 3)
   end
 
